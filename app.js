@@ -16,9 +16,9 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(helmet());
 
-app.use(validatePost);
+// app.use(validatePost);
 
-app.use("/post", postsRouter);
+app.use("/posts", postsRouter);
 
 app.listen(4000, () => {
   console.log("Servidor escuchando en puerto 4000");

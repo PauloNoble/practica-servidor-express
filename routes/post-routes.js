@@ -1,5 +1,4 @@
 import { Router } from "express";
-
 const postsRouter = Router();
 
 import {
@@ -7,9 +6,12 @@ import {
   ctrlGetAllPost,
 } from "../controllers/post-controller.js";
 
+import { createPostValidations } from "../validations/create-post-validations.js";
+import { applyValidations } from "../middlewares/applyValidations.js";
+
 postsRouter.get("/", ctrlGetAllPost);
 
-postsRouter.post("/", ctrlCreatePost);
+postsRouter.post("/", createPostValidations, applyValidations, ctrlCreatePost);
 
 postsRouter.patch("/", ctrlCreatePost);
 
