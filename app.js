@@ -3,8 +3,6 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 
-import { validatePost } from "./middlewares/validations.js";
-
 import { postsRouter } from "./routes/post-routes.js";
 
 const app = express();
