@@ -31,7 +31,17 @@ export function ctrlUpdatePost(req, res) {
 
   const { title, desc, image } = req.body;
 
-  postModel.update(postId, { title, desc, image });
+  const updatedPost = postModel.update(postId, { title, desc, image });
+
+  if (!updatedPost) return res.sendStatus(404);
+
+  res.sendStatus(200);
+}
+
+export function ctrlDeletePost(req, res) {
+  const { postId } = req.params;
+
+  postModel.destroy({ id: postId });
 
   res.sendStatus(200);
 }
